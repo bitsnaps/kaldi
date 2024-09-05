@@ -65,17 +65,18 @@ if have "$CXX" && ! echo "#include <zlib.h>" | $CXX $CXXFLAGS -E - &>/dev/null; 
   add_packages zlib-devel zlib1g-dev
 fi
 
-for f in make automake autoconf patch grep bzip2 gzip unzip wget git sox; do
+# for f in make automake autoconf patch grep bzip2 gzip unzip wget git sox; do
+for f in make automake autoconf patch grep bzip2 gzip unzip wget git; do
   if ! have $f; then
     echo "$0: $f is not installed."
     add_packages $f
   fi
 done
 
-if ! have gfortran; then
-  echo "$0: gfortran is not installed"
-  add_packages gcc-gfortran gfortran
-fi
+# if ! have gfortran; then
+#   echo "$0: gfortran is not installed"
+#   add_packages gcc-gfortran gfortran
+# fi
 
 if ! have libtoolize && ! have glibtoolize; then
   echo "$0: neither libtoolize nor glibtoolize is installed"

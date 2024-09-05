@@ -7,5 +7,13 @@ tasks:
       ./extras/check_dependencies.sh
       CXX=g++-4.8 extras/check_dependencies.sh
       make
+      cd openfst-1.7.2
+      ./configure
+      make
+      make install
+      cd ../src
+      ./configure --shared
+      make depend -j 8
+      make -j 8
     command: echo "Replace me with something that should run on every start, or just
       remove me entirely."
